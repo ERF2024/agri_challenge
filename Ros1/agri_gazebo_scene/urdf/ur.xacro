@@ -126,32 +126,32 @@
 
   <link name="qbsh_left">
     <visual>
-     <origin xyz="-0.006 -0.0178 0.1565" rpy="0 0 0" />
+     <origin xyz="0 0 0" rpy="0 0 0" />
      <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
      </geometry>
    </visual>
-   <!-- <collision>
-     <origin xyz="-0.006 -0.0178 0.1565" rpy="0 0 0" />
+   <collision>
+     <origin xyz="0 0 0" rpy="0 0 0" />
      <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
      </geometry>
-   </collision> -->
+   </collision>
   </link>
 
   <link name="qbsh_right">
     <visual>
-     <origin xyz="-0.006 -0.0178 0.1565" rpy="0 0 0" />
+     <origin xyz="0 0 0" rpy="0 0 0" />
      <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
      </geometry>
    </visual>
-   <!-- <collision>
-     <origin xyz="-0.006 -0.0178 0.1565" rpy="0 0 0" />
+   <collision>
+     <origin xyz="0 0 0" rpy="0 0 0" />
      <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_right.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl" />
      </geometry>
-   </collision> -->
+   </collision>
   </link>
 
   <joint name="qbsh_left_joint" type="fixed">
