@@ -49,8 +49,6 @@ void AgriControl::sendTrajectory(const trajectory_msgs::JointTrajectory &traj)
         static std::unordered_map<std::string, double>::iterator it;
         for (uint j = 0; j < traj.joint_names.size(); j++)
         {
-            std::cout << "Here 2" << std::endl;
-
             it = joints_map_.find(traj.joint_names[j]);
             if (it != joints_map_.end())
             {
