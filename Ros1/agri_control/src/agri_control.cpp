@@ -4,9 +4,9 @@ AgriControl::AgriControl()
 {
     joint_sub_ = nh_.subscribe("/joint_states", 1, &AgriControl::initJointCallback, this); 
     goal_sub_ = nh_.subscribe("/desired_robot_trajectory", 1, &AgriControl::trajectoryCallback, this); 
-    
-    trajectory_pub_ = nh_.advertise<trajectory_msgs::JointTrajectory>("/eff_joint_traj_controller/command", 1);
+    moveit_sub_ = nh_.subscribe("/move_group/result", 1, &AgriControl::moveitCallback, this);
 
+    trajectory_pub_ = nh_.advertise<trajectory_msgs::JointTrajectory>("/eff_joint_traj_controller/command", 1);
 }
 
 void AgriControl::initJointCallback(const sensor_msgs::JointState::ConstPtr &js)
@@ -38,27 +38,39 @@ void AgriControl::jointCallback(const sensor_msgs::JointState::ConstPtr &js)
         joints_map_[js->name[i]] = js->position[i];
 }
 
-void AgriControl::trajectoryCallback(const trajectory_msgs::JointTrajectory::ConstPtr &traj)
+void AgriControl::sendTrajectory(const trajectory_msgs::JointTrajectory &traj)
 {
-    trajectory_goal_.points.resize(traj->points.size());
+    trajectory_goal_.points.resize(traj.points.size());
     for(uint i = 0; i < trajectory_goal_.points.size(); i++)
     {
-        trajectory_goal_.points[i].time_from_start = traj->points[i].time_from_start; 
+        trajectory_goal_.points[i].positions.resize(actual_js_.position.size());
+        trajectory_goal_.points[i].time_from_start = traj.points[i].time_from_start; 
 
         static std::unordered_map<std::string, double>::iterator it;
-        for (uint j = 0; j < traj->joint_names.size(); j++)
+        for (uint j = 0; j < traj.joint_names.size(); j++)
         {
-            it = joints_map_.find(traj->joint_names[j]);
+            std::cout << "Here 2" << std::endl;
+
+            it = joints_map_.find(traj.joint_names[j]);
             if (it != joints_map_.end())
             {
-               it->second = traj->points[i].positions[j];
+               it->second = traj.points[i].positions[j];
             } 
         }
         for (uint j = 0; j < actual_js_.position.size(); j++)
-            trajectory_goal_.points[i].positions[j] = joints_map_[actual_js_.name[j]];   
+            trajectory_goal_.points[i].positions[j] = joints_map_[actual_js_.name[j]];
     }
     trajectory_pub_.publish(trajectory_goal_);
+}
 
+void AgriControl::trajectoryCallback(const trajectory_msgs::JointTrajectory::ConstPtr &traj)
+{
+    sendTrajectory(*traj);
+}
+
+void AgriControl::moveitCallback(const moveit_msgs::MoveGroupActionResult::ConstPtr &res)
+{
+    sendTrajectory(res->result.planned_trajectory.joint_trajectory);   
 }
 
 void AgriControl::spinner()

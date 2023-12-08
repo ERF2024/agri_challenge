@@ -4,6 +4,7 @@
 #include <ros/ros.h>
 #include <trajectory_msgs/JointTrajectory.h>
 #include <sensor_msgs/JointState.h>
+#include <moveit_msgs/MoveGroupActionResult.h>
 
 #include <unordered_map>
 
@@ -16,9 +17,12 @@ class AgriControl
 		void initJointCallback(const sensor_msgs::JointState::ConstPtr &js);
 		void jointCallback(const sensor_msgs::JointState::ConstPtr &js);
 		void trajectoryCallback(const trajectory_msgs::JointTrajectory::ConstPtr &traj);
+		void moveitCallback(const moveit_msgs::MoveGroupActionResult::ConstPtr &res);
+		void sendTrajectory(const trajectory_msgs::JointTrajectory &traj);
 		ros::NodeHandle nh_;
 		ros::Subscriber joint_sub_;
 		ros::Subscriber goal_sub_;
+		ros::Subscriber moveit_sub_;
 		ros::Publisher trajectory_pub_;
 
 		trajectory_msgs::JointTrajectory trajectory_goal_;

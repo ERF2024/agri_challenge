@@ -4,6 +4,7 @@ project(agri_control)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   trajectory_msgs
+  moveit_core
 )
 
 catkin_package(
