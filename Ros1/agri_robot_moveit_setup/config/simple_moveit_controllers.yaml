@@ -1,0 +1,25 @@
+controller_list:
+  - name: left_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - world_joint
+      - leftshoulder_pan_joint
+      - leftshoulder_lift_joint
+      - leftelbow_joint
+      - leftwrist_1_joint
+      - leftwrist_2_joint
+      - leftwrist_3_joint
+  - name: right_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - world_joint
+      - rightshoulder_pan_joint
+      - rightshoulder_lift_joint
+      - rightelbow_joint
+      - rightwrist_1_joint
+      - rightwrist_2_joint
+      - rightwrist_3_joint

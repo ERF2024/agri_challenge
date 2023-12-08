@@ -1,0 +1,92 @@
+left_arm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - world_joint
+    - leftshoulder_pan_joint
+    - leftshoulder_lift_joint
+    - leftelbow_joint
+    - leftwrist_1_joint
+    - leftwrist_2_joint
+    - leftwrist_3_joint
+  gains:
+    world_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    leftshoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    leftshoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    leftelbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    leftwrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    leftwrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    leftwrist_3_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+right_arm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - world_joint
+    - rightshoulder_pan_joint
+    - rightshoulder_lift_joint
+    - rightelbow_joint
+    - rightwrist_1_joint
+    - rightwrist_2_joint
+    - rightwrist_3_joint
+  gains:
+    world_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rightshoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rightshoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rightelbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rightwrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rightwrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rightwrist_3_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
