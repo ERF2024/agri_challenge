@@ -5,8 +5,9 @@
   <!-- The name of the parameter under which the URDF is loaded -->
   <arg name="robot_description" default="robot_description"/>
 
+  <arg name="path" default="$(find ur_description)/config" />
   <!-- Load universal robot description format (URDF) -->
-  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro robot_model:=ur5 prefix1:=left joint_limit_params:=/opt/ros/noetic/share/ur_description/config/ur5/joint_limits.yaml kinematics_params:=/opt/ros/noetic/share/ur_description/config/ur5/default_kinematics.yaml physical_params:=/opt/ros/noetic/share/ur_description/config/ur5/physical_parameters.yaml visual_params:=/opt/ros/noetic/share/ur_description/config/ur5/visual_parameters.yaml prefix2:=right '$(find agri_gazebo_scene)/urdf/ur_moveit.xacro'"/>
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro robot_model:=ur5 prefix1:=left joint_limit_params:=$(arg path)/ur5/joint_limits.yaml kinematics_params:=$(arg path)/ur5/default_kinematics.yaml physical_params:=$(arg path)/ur5/physical_parameters.yaml visual_params:=$(arg path)/ur5/visual_parameters.yaml prefix2:=right '$(find agri_gazebo_scene)/urdf/ur_moveit.xacro'"/>
 
   <!-- The semantic description that corresponds to the URDF -->
   <param name="$(arg robot_description)_semantic" textfile="$(find agri_robot_moveit_setup)/config/ur5_robot.srdf" />

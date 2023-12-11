@@ -74,6 +74,7 @@
   <!-- Gazebo parameters -->
   <arg name="paused" default="false" doc="Starts Gazebo in paused mode" />
   <arg name="gui" default="true" doc="Starts Gazebo gui" />
+  <arg name="gazebo_world" default="$(find agri_gazebo_scene)/worlds/apple_field/apple_field.world"/>
 
   <!-- Robot state publisher -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
@@ -90,5 +91,6 @@
     <arg name="stopped_controllers" value="$(arg stopped_controllers)"/>
     <arg name="prefix1" value="$(arg prefix1)"/>
     <arg name="prefix2" value="$(arg prefix2)"/>
+    <arg name="gazebo_world" value="$(arg gazebo_world)"/>
   </include>
 </launch>

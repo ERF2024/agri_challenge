@@ -25,5 +25,7 @@
   <exec_depend>ur_gazebo</exec_depend>
 
   <export>
+    <gazebo_ros gazebo_model_path="${prefix}/worlds/apple_field"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds/apple_field"/>  
   </export>
 </package>

@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="field_map">
+
+    <include>
+      <name>p1</name>
+      <pose>0.0 0 0 0 0 0</pose>
+      <uri>model://plant</uri>
+    </include>
+
+<include>
+<name>a1</name>
+<pose>0 1.2958 1.868 0 0 1.825 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a2</name>
+<pose>0 -0.39172 1.8942 0 0 2.5274 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a3</name>
+<pose>0 -0.93213 2.6267 0 0 0.039576 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a4</name>
+<pose>0 -1.1913 1.151 0 0 0.36069 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a5</name>
+<pose>0 0.47493 2.8955 0 0 0.65698 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a6</name>
+<pose>0 -0.73898 1.0118 0 0 1.8818 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a7</name>
+<pose>0 1.6174 2.8728 0 0 2.3198 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a8</name>
+<pose>0 -0.28112 1.2055 0 0 1.6225 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a9</name>
+<pose>0 0.16785 2.2109 0 0 1.5389 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a10</name>
+<pose>0 1.5819 2.2847 0 0 2.0789 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a11</name>
+<pose>0 1.1111 2.8906 0 0 1.8148 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a12</name>
+<pose>0 1.5855 1.0603 0 0 2.349 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a13</name>
+<pose>0 0.42657 1.7208 0 0 2.9491 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a14</name>
+<pose>0 -1.1412 1.6192 0 0 1.594 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a15</name>
+<pose>0 -0.048192 2.4636 0 0 1.3448 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a16</name>
+<pose>0 0.79027 1.4763 0 0 2.1781 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a17</name>
+<pose>0 0.55502 2.4242 0 0 2.436 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a18</name>
+<pose>0 -0.359 2.9015 0 0 0.10051 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a19</name>
+<pose>0 -0.6035 2.215 0 0 0.44508 </pose>
+<uri>model://apple</uri>
+</include>
+
+<include>
+<name>a20</name>
+<pose>0 0.64602 1.1927 0 0 1.4555 </pose>
+<uri>model://apple</uri>
+</include>
+
+  </model>
+</sdf>

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: agri_gazebo_scene
+    relative_path: urdf/ur_moveit.xacro
+    xacro_args: robot_model:=ur5 prefix1:=left joint_limit_params:=/opt/ros/noetic/share/ur_description/config/ur5/joint_limits.yaml kinematics_params:=/opt/ros/noetic/share/ur_description/config/ur5/default_kinematics.yaml physical_params:=/opt/ros/noetic/share/ur_description/config/ur5/physical_parameters.yaml visual_params:=/opt/ros/noetic/share/ur_description/config/ur5/visual_parameters.yaml prefix2:=right
+  SRDF:
+    relative_path: config/ur5_robot.srdf
+  CONFIG:
+    author_name: Andrea Pupa
+    author_email: andrea.pup@unimore.it
+    generated_timestamp: 1701986316

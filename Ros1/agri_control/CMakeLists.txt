@@ -17,3 +17,6 @@ include_directories(
 
 add_executable(${PROJECT_NAME} src/agri_control.cpp src/agri_control_node.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
+
+add_executable(agri_state_machine src/agri_state_machine.cpp src/agri_state_machine_node.cpp)
+target_link_libraries(agri_state_machine ${catkin_LIBRARIES})
