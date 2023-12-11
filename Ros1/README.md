@@ -43,7 +43,9 @@ Put Logo erf
 ## Installation Steps
 
 Everything should autoinstall with the command:
-
+```
+rosdep install --from-paths src --ignore-src -r -y
+```
 
 ## Usage
 You can run the demo using the launch file:
@@ -58,6 +60,11 @@ roslaunch agri_gazebo_scene scene.launch use_moveit:=true
 Please, at the beginning deactivate and reactivate the MotionPlanning plugin on Rviz to align the robots with Gazebo.
 Please note that when moving the left robot with the interface, there is a "green" robot that moves in strange positions. This is a visual bug that does not affect the simulation.
 
+You can control the robot publishing on the topic
+```
+rostopic pub /desired_robot_trajectory ...
+```
+
 To close the hand you can publish on the topic:
 ```
 rostopic pub /left_robot/set_gripper_state std_msgs/Bool "data: true"
@@ -71,7 +78,7 @@ rostopic pub /right_robot/set_gripper_state std_msgs/Bool "data: true"
 
 Please note that the hand is an STL, thus it does not move in the scene. However closing and opening the gripper allow you to grasp the apples and move them inside the scene.
 
-#### Sensor topics:
+## Sensor topics:
 
 Each cobot has a camera mounted on the base, which can be exploited to track the apples inside the environment.
 To see the data, check the topics
@@ -80,3 +87,14 @@ To see the data, check the topics
 /left/camera1/...
 /right/camera1/...
 ```
+
+## Issues:
+
+Sometimes one or both manipulators initialize in a non correct pose. While we fix that, we suggest to close and reopen everything.
+
+If you encounter any issues, please contact me at my email address: andrea.pupa@unimore.it
+
+## To Do List:
+* Add actuation of softhand
+* Solve bugs
+
