@@ -10,7 +10,8 @@
   <arg name="prefix1" default="left" />
   <arg name="prefix2" default="right" />
 
-
+  <arg name="use_moveit" default="false" />
+  <arg name="node_start_delay" default="10.0" />  
 
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
@@ -26,30 +27,31 @@
   <!-- Set execution mode for fake execution controllers -->
   <arg name="fake_execution_type" default="interpolate" />
 
-  <!-- By default, hide joint_state_publisher's GUI in 'fake' controller_manager mode -->
-  <arg name="use_gui" default="false" />
-  <arg name="use_rviz" default="true" />
+  <group if="$(arg use_moveit)">
+    <!-- By default, hide joint_state_publisher's GUI in 'fake' controller_manager mode -->
+    <arg name="use_gui" default="false" />
+    <arg name="use_rviz" default="true" />
 
-  <!-- If needed, broadcast static tf for robot root -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world2 world" />
+    <!-- If needed, broadcast static tf for robot root -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world2 world" />
 
-  <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
-  <include file="$(find agri_robot_moveit_setup)/launch/move_group.launch">
-    <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
-    <arg name="fake_execution_type" value="$(arg fake_execution_type)"/>
-    <arg name="info" value="true"/>
-    <arg name="debug" value="$(arg debug)"/>
-    <arg name="pipeline" value="$(arg pipeline)"/>
-    <arg name="load_robot_description" value="$(arg load_robot_description)"/>
-  </include>
+    <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
+    <include file="$(find agri_robot_moveit_setup)/launch/move_group.launch">
+      <arg name="allow_trajectory_execution" value="true"/>
+      <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
+      <arg name="fake_execution_type" value="$(arg fake_execution_type)"/>
+      <arg name="info" value="true"/>
+      <arg name="debug" value="$(arg debug)"/>
+      <arg name="pipeline" value="$(arg pipeline)"/>
+      <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+    </include>
 
-  <!-- Run Rviz and load the default config to see the state of the move_group node -->
-  <include file="$(find agri_robot_moveit_setup)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
-    <arg name="rviz_config" value="$(find agri_robot_moveit_setup)/launch/moveit.rviz"/>
-    <arg name="debug" value="$(arg debug)"/>
-  </include>
-
+    <!-- Run Rviz and load the default config to see the state of the move_group node -->
+    <include file="$(find agri_robot_moveit_setup)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
+      <arg name="rviz_config" value="$(find agri_robot_moveit_setup)/launch/moveit.rviz"/>
+      <arg name="debug" value="$(arg debug)"/>
+    </include>
+  </group>
 
   <!--Common parameters -->
   <arg name="transmission_hw_interface" default="hardware_interface/EffortJointInterface" doc="The hardware_interface to expose for each joint in the simulated robot (one of: [PositionJointInterface, VelocityJointInterface, EffortJointInterface])"/>
@@ -93,4 +95,8 @@
     <arg name="prefix2" value="$(arg prefix2)"/>
     <arg name="gazebo_world" value="$(arg gazebo_world)"/>
   </include>
+
+  <node name="agri_control" pkg="agri_control" type="agri_control" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " /> 
+  <node name="agri_state_machine" pkg="agri_control" type="agri_state_machine" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " /> 
+
 </launch>

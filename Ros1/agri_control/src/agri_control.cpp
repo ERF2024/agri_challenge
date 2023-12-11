@@ -23,7 +23,7 @@ void AgriControl::initJointCallback(const sensor_msgs::JointState::ConstPtr &js)
         joints_map_[js->name[i]] = js->position[i];
     }
     p.positions.back() = 0;
-    p.time_from_start = ros::Duration(1);
+    p.time_from_start = ros::Duration(5);
     trajectory_goal_.points.push_back(p);
     ros::Duration(1).sleep();
     trajectory_pub_.publish(trajectory_goal_);
