@@ -22,7 +22,8 @@ A repository for ERF Agri Challenge. Used for build, test, and deployment for th
 **Table of Contents**
 - [Overview](#overview)
 - [Installation Steps](#installation-steps)
-    - 
+- [Usage](#usage)
+- [Issues](#issues)
 
 </div>
 </div>
@@ -31,8 +32,7 @@ A repository for ERF Agri Challenge. Used for build, test, and deployment for th
 
 ## Overview
 
-Put Logo erf
-[<img src="https://www.ros.org/imgs/logo-white.png" width="200"/>](http://www.ros.org/)
+<img src="images/erf_logo.png" width="200"/>  <img src="https://www.ros.org/imgs/logo-white.png" width="200"/>
 
 - This repository provides framework and the URDF for the challenge for simulation 
 - You can find information about the challenge on the <a href="docs/rule.md">rule page </a>
@@ -78,7 +78,7 @@ rostopic pub /right_robot/set_gripper_state std_msgs/Bool "data: true"
 
 Please note that the hand is an STL, thus it does not move in the scene. However closing and opening the gripper allow you to grasp the apples and move them inside the scene.
 
-## Sensor topics:
+### Sensor topics:
 
 Each cobot has a camera mounted on the base, which can be exploited to track the apples inside the environment.
 To see the data, check the topics
@@ -90,7 +90,7 @@ To see the data, check the topics
 
 ## Issues:
 
-Sometimes one or both manipulators initialize in a non correct pose. While we fix that, we suggest to close and reopen everything.
+Sometimes one or both manipulators initialize in a non correct configuration. While we fix that, we suggest to close and reopen everything.
 
 If you encounter any issues, please contact me at my email address: andrea.pupa@unimore.it
 
