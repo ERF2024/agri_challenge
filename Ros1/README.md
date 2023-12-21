@@ -1,4 +1,4 @@
-# ERF Dog Challenge simulation framework
+# ERF Agri Challenge simulation framework
 
 - Version 1.0.0
 
@@ -35,7 +35,7 @@ A repository for ERF Agri Challenge. Used for build, test, and deployment for th
 <img src="images/erf_logo.png" width="200"/>  <img src="https://www.ros.org/imgs/logo-white.png" width="200"/>
 
 - This repository provides framework and the URDF for the challenge for simulation 
-- You can find information about the challenge on the <a href="docs/rule.md">rule page </a>
+- You can find information about the challenge on the <a href="https://erf2024.eu/challenges/">rule page</a>.
 - The supported robot for this simulation is the Universal Robot UR5 endowed with the QbRobotics SoftHand
 
 ---
