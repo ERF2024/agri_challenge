@@ -361,7 +361,7 @@
 -r:"Library/Bee/artifacts/2400b0aE.dag/vhacd.ref.dll"
 -analyzer:"/home/nico/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/home/nico/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/URDF/Script/RobotControl.cs"
+"Assets/Script/RobotControl.cs"
 -langversion:9.0
 
 /deterministic

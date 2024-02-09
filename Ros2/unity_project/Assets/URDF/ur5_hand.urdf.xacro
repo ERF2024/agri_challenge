@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur5">
+
+  <xacro:include filename="/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description/urdf/ur.urdf.xacro"/>
+  <xacro:include filename="/home/nico/first_robot_ws/src/urdf/qbshin.urdf.xacro"/>
+  <xacro:ur />
+  <xacro:qbshin ns="ur5" rpy="0 0 ${-pi/4}" connected_to="tool0"/>
+</robot>
+
+

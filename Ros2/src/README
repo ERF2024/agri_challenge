@@ -1,0 +1,9 @@
+Instructions:
+
+1) Start Unity project
+2) Open terminal and bulid the ROS2 workspace
+3) ros2 launch ros_tcp_endpoint endpoint.py
+4) In another terminal: ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5 robot_ip:=yyy.yyy.yyy.yyy use_fake_hardware:=true launch_rviz:=false initial_joint_controller:=joint_trajectory_controller
+4) In another terminal: ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur5 launch_rviz:=true
+
+

@@ -1,0 +1,160 @@
+[0.751s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/nico/ur51_ws/src']
+[0.751s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/nico/ur51_ws/src'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f9184a97b80>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7f9184a943a0>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7f9184a943a0>>, mixin_verb=('list',))
+[0.781s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.782s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/nico/ur51_ws/src'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'ignore'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'ignore_ament_install'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extensions ['colcon_pkg']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'colcon_pkg'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extensions ['colcon_meta']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'colcon_meta'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extensions ['ros']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'ros'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extensions ['cmake', 'python']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'cmake'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'python'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extensions ['python_setup_py']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src) by extension 'python_setup_py'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extensions ['ignore', 'ignore_ament_install']
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extension 'ignore'
+[0.789s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extension 'ignore_ament_install'
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extensions ['colcon_pkg']
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extension 'colcon_pkg'
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extensions ['colcon_meta']
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extension 'colcon_meta'
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extensions ['ros']
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ROS-TCP-Endpoint) by extension 'ros'
+[0.791s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/ROS-TCP-Endpoint' with type 'ros.ament_python' and name 'ros_tcp_endpoint'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extensions ['ignore', 'ignore_ament_install']
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extension 'ignore'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extension 'ignore_ament_install'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extensions ['colcon_pkg']
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extension 'colcon_pkg'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extensions ['colcon_meta']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extension 'colcon_meta'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extensions ['ros']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description) by extension 'ros'
+[0.792s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Description' with type 'ros.ament_cmake' and name 'ur_description'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extensions ['ignore', 'ignore_ament_install']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'ignore'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'ignore_ament_install'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extensions ['colcon_pkg']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'colcon_pkg'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extensions ['colcon_meta']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'colcon_meta'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extensions ['ros']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'ros'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extensions ['cmake', 'python']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'cmake'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'python'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extensions ['python_setup_py']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver) by extension 'python_setup_py'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extensions ['ignore', 'ignore_ament_install']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extension 'ignore'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extension 'ignore_ament_install'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extensions ['colcon_pkg']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extension 'colcon_pkg'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extensions ['colcon_meta']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extension 'colcon_meta'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extensions ['ros']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur) by extension 'ros'
+[0.793s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur' with type 'ros.ament_cmake' and name 'ur'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extension 'ignore'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extension 'ignore_ament_install'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extensions ['colcon_pkg']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extension 'colcon_pkg'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extensions ['colcon_meta']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extension 'colcon_meta'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extensions ['ros']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup) by extension 'ros'
+[0.794s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_bringup' with type 'ros.ament_cmake' and name 'ur_bringup'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extensions ['ignore', 'ignore_ament_install']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extension 'ignore'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extension 'ignore_ament_install'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extensions ['colcon_pkg']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extension 'colcon_pkg'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extensions ['colcon_meta']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extension 'colcon_meta'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extensions ['ros']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration) by extension 'ros'
+[0.794s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_calibration' with type 'ros.ament_cmake' and name 'ur_calibration'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extensions ['ignore', 'ignore_ament_install']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extension 'ignore'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extension 'ignore_ament_install'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extensions ['colcon_pkg']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extension 'colcon_pkg'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extensions ['colcon_meta']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extension 'colcon_meta'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extensions ['ros']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers) by extension 'ros'
+[0.795s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_controllers' with type 'ros.ament_cmake' and name 'ur_controllers'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extension 'ignore'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extension 'ignore_ament_install'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extensions ['colcon_pkg']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extension 'colcon_pkg'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extensions ['colcon_meta']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extension 'colcon_meta'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extensions ['ros']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs) by extension 'ros'
+[0.796s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_dashboard_msgs' with type 'ros.ament_cmake' and name 'ur_dashboard_msgs'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extensions ['ignore', 'ignore_ament_install']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extension 'ignore'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extension 'ignore_ament_install'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extensions ['colcon_pkg']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extension 'colcon_pkg'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extensions ['colcon_meta']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extension 'colcon_meta'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extensions ['ros']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config) by extension 'ros'
+[0.797s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config' with type 'ros.ament_cmake' and name 'ur_moveit_config'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extensions ['ignore', 'ignore_ament_install']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extension 'ignore'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extension 'ignore_ament_install'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extensions ['colcon_pkg']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extension 'colcon_pkg'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extensions ['colcon_meta']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extension 'colcon_meta'
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extensions ['ros']
+[0.797s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver) by extension 'ros'
+[0.798s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/Universal_Robots_ROS2_Driver/ur_robot_driver' with type 'ros.ament_cmake' and name 'ur_robot_driver'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/log) by extension 'ignore'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/log) ignored
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extensions ['ignore', 'ignore_ament_install']
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extension 'ignore'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extension 'ignore_ament_install'
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extensions ['colcon_pkg']
+[0.798s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extension 'colcon_pkg'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extensions ['colcon_meta']
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extension 'colcon_meta'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extensions ['ros']
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement) by extension 'ros'
+[0.799s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/simple_moveit2_universal_robots_movement' with type 'ros.ament_cmake' and name 'hello_moveit_ur'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extensions ['ignore', 'ignore_ament_install']
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extension 'ignore'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extension 'ignore_ament_install'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extensions ['colcon_pkg']
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extension 'colcon_pkg'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extensions ['colcon_meta']
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extension 'colcon_meta'
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extensions ['ros']
+[0.799s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_ign) by extension 'ros'
+[0.799s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/ur5_rg2_ign' with type 'ros.ament_cmake' and name 'ur5_rg2_ign'
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extensions ['ignore', 'ignore_ament_install']
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extension 'ignore'
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extension 'ignore_ament_install'
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extensions ['colcon_pkg']
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extension 'colcon_pkg'
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extensions ['colcon_meta']
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extension 'colcon_meta'
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extensions ['ros']
+[0.800s] Level 1:colcon.colcon_core.package_identification:_identify(/home/nico/ur51_ws/src/ur5_rg2_moveit2_config) by extension 'ros'
+[0.800s] DEBUG:colcon.colcon_core.package_identification:Package '/home/nico/ur51_ws/src/ur5_rg2_moveit2_config' with type 'ros.ament_cmake' and name 'ur5_rg2_moveit2_config'
+[0.800s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
