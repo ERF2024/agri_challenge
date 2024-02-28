@@ -6,9 +6,9 @@ The mockup orchard will be placed at about 60cm distance from the arms baseline.
 A wrist camera will be placed attached to the wrist interface, 3cm backwards and 6cm above the hand (palm up).
 The apples will hang from the orchard plane with some distance from the background orchard plane surface.
 
-QB hand repository:
-https://bitbucket.org/qbrobotics/qbshin-ros/src/production-noetic/ (ROS1)
-https://bitbucket.org/qbrobotics/qbshin-ros/src/production-humble/ (ROS2)
+QB hand repository:<br/>
+https://bitbucket.org/qbrobotics/qbshin-ros/src/production-noetic/ (ROS1)<br/>
+https://bitbucket.org/qbrobotics/qbshin-ros/src/production-humble/ (ROS2)<br/>
 
 NOTE: The ROS UR5 controller is intended to control one arm. To have both arms running simultaneously, the UR5 nodes needs to be replicated and eventually separated using different namespaces.
 
