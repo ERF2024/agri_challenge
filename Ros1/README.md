@@ -58,11 +58,11 @@ The system is already integrate with MoveIt for planning purpose. This can be di
 roslaunch agri_gazebo_scene scene.launch use_moveit:=true
 ```
 Please, at the beginning deactivate and reactivate the MotionPlanning plugin on Rviz to align the robots with Gazebo.
-Please note that when moving the left robot with the interface, there is a "green" robot that moves in strange positions. This is a visual bug that does not affect the simulation.
 
-You can control the robot publishing on the topic
+You can control each robot publishing on the topic
 ```
-rostopic pub /desired_robot_trajectory ...
+rostopic pub /left_desired_robot_trajectory ...
+rostopic pub /right_desired_robot_trajectory ...
 ```
 
 To close the hand you can publish on the topic:
@@ -84,8 +84,8 @@ Each cobot has a camera mounted on the base, which can be exploited to track the
 To see the data, check the topics
 
 ```
-/left/camera1/...
-/right/camera1/...
+/left_camera/...
+/right_camera/...
 ```
 
 ## Issues:
@@ -97,4 +97,5 @@ If you encounter any issues, please contact me at my email address: andrea.pupa@
 ## To Do List:
 * Add actuation of softhand
 * Solve bugs
+* Use UR5e instead of UR5
 

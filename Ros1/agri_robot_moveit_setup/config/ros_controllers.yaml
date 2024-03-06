@@ -1,91 +1,110 @@
-left_arm_controller:
-  type: effort_controllers/JointTrajectoryController
+# Simulation settings for using moveit_sim_controllers
+moveit_sim_hw_interface:
+  joint_model_group: right_arm
+  joint_model_group_pose: right_home
+# Settings for ros_control_boilerplate control loop
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
   joints:
-    - world_joint
-    - leftshoulder_pan_joint
-    - leftshoulder_lift_joint
-    - leftelbow_joint
-    - leftwrist_1_joint
-    - leftwrist_2_joint
-    - leftwrist_3_joint
-  gains:
-    world_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    leftshoulder_pan_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    leftshoulder_lift_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    leftelbow_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    leftwrist_1_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    leftwrist_2_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-    leftwrist_3_joint:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
-right_arm_controller:
-  type: effort_controllers/JointTrajectoryController
+    - right_shoulder_pan_joint
+    - right_shoulder_lift_joint
+    - right_elbow_joint
+    - right_wrist_1_joint
+    - right_wrist_2_joint
+    - right_wrist_3_joint
+    - left_shoulder_pan_joint
+    - left_shoulder_lift_joint
+    - left_elbow_joint
+    - left_wrist_1_joint
+    - left_wrist_2_joint
+    - left_wrist_3_joint
+  sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+controller_list:
+  []
+left_arm_position_controller:
+  type: position_controllers/JointPositionController
   joints:
-    - world_joint
-    - rightshoulder_pan_joint
-    - rightshoulder_lift_joint
-    - rightelbow_joint
-    - rightwrist_1_joint
-    - rightwrist_2_joint
-    - rightwrist_3_joint
+    - left_shoulder_pan_joint
+    - left_shoulder_lift_joint
+    - left_elbow_joint
+    - left_wrist_1_joint
+    - left_wrist_2_joint
+    - left_wrist_3_joint
   gains:
-    world_joint:
+    left_shoulder_pan_joint:
       p: 100
       d: 1
       i: 1
       i_clamp: 1
-    rightshoulder_pan_joint:
+    left_shoulder_lift_joint:
       p: 100
       d: 1
       i: 1
       i_clamp: 1
-    rightshoulder_lift_joint:
+    left_elbow_joint:
       p: 100
       d: 1
       i: 1
       i_clamp: 1
-    rightelbow_joint:
+    left_wrist_1_joint:
       p: 100
       d: 1
       i: 1
       i_clamp: 1
-    rightwrist_1_joint:
+    left_wrist_2_joint:
       p: 100
       d: 1
       i: 1
       i_clamp: 1
-    rightwrist_2_joint:
+    left_wrist_3_joint:
       p: 100
       d: 1
       i: 1
       i_clamp: 1
-    rightwrist_3_joint:
+right_arm_position_controller:
+  type: position_controllers/JointPositionController
+  joints:
+    - right_shoulder_pan_joint
+    - right_shoulder_lift_joint
+    - right_elbow_joint
+    - right_wrist_1_joint
+    - right_wrist_2_joint
+    - right_wrist_3_joint
+  gains:
+    right_shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    right_shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    right_elbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    right_wrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    right_wrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    right_wrist_3_joint:
       p: 100
       d: 1
       i: 1

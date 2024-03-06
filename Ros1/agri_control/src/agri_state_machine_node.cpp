@@ -5,8 +5,12 @@ int main(int argc, char **argv)
 
 	ros::init(argc, argv, "agri_state_machine");
 
-	AgriStateMachine ce1("left");
-	AgriStateMachine ce2("right");
+	ros::NodeHandle nh;
+	std::string prefix1, prefix2;
+	nh.param<std::string>("prefix1", prefix1, "left");
+	nh.param<std::string>("prefix2", prefix2, "right");
+	AgriStateMachine ce1(prefix1);
+	AgriStateMachine ce2(prefix2);
 	ros::Rate r(500);
 
 	while (ros::ok())

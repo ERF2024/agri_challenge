@@ -7,8 +7,8 @@
   <arg name="kinematics_params" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
   <arg name="physical_params" default="$(find ur_description)/config/ur5/physical_parameters.yaml"/>
   <arg name="visual_params" default="$(find ur_description)/config/ur5/visual_parameters.yaml"/>
-  <arg name="prefix1" default="left" />
-  <arg name="prefix2" default="right" />
+  <arg name="prefix1" default="left_" />
+  <arg name="prefix2" default="right_" />
 
   <arg name="use_moveit" default="false" />
   <arg name="node_start_delay" default="10.0" />  
@@ -27,6 +27,9 @@
   <!-- Set execution mode for fake execution controllers -->
   <arg name="fake_execution_type" default="interpolate" />
 
+  <param name="prefix1" value="$(arg prefix1)"/>
+  <param name="prefix2" value="$(arg prefix2)"/>
+
   <group if="$(arg use_moveit)">
     <!-- By default, hide joint_state_publisher's GUI in 'fake' controller_manager mode -->
     <arg name="use_gui" default="false" />
@@ -38,8 +41,8 @@
     <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
     <include file="$(find agri_robot_moveit_setup)/launch/move_group.launch">
       <arg name="allow_trajectory_execution" value="true"/>
-      <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
-      <arg name="fake_execution_type" value="$(arg fake_execution_type)"/>
+      <!-- <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" /> -->
+      <!-- <arg name="fake_execution_type" value="$(arg fake_execution_type)"/> -->
       <arg name="info" value="true"/>
       <arg name="debug" value="$(arg debug)"/>
       <arg name="pipeline" value="$(arg pipeline)"/>
@@ -67,7 +70,7 @@
 
   <!-- Controller configuration -->
   <arg name="controller_config_file" default="$(find agri_gazebo_scene)/config/ur5_controllers.yaml" doc="Config file used for defining the ROS-Control controllers."/>
-  <arg name="controllers" default="joint_state_controller eff_joint_traj_controller" doc="Controllers that are activated by default."/>
+  <arg name="controllers" default="joint_state_controller $(arg prefix1)eff_joint_traj_controller $(arg prefix2)eff_joint_traj_controller" doc="Controllers that are activated by default."/>
   <arg name="stopped_controllers" default="joint_group_eff_controller" doc="Controllers that are initally loaded, but not started."/>
 
   <!-- robot_state_publisher configuration -->

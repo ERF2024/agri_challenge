@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg robot_model)_robot">
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur5_robot">
   <!--
     This is a top-level xacro instantiating the Gazebo-specific version of the
     'ur_robot' macro (ie: 'ur_robot_gazebo') and passing it values for all its
@@ -29,6 +30,7 @@
     NOTE: this imports the Gazebo-wrapper main macro, NOT the regular
           xacro macro (which is hosted by ur_description).
   -->
+
   <xacro:include filename="$(find agri_gazebo_scene)/urdf/ur_macro.xacro" />
     <gazebo>
       <plugin name="ros_control" filename="libgazebo_ros_control.so">
@@ -38,12 +40,12 @@
     </gazebo>
 
   <!--Declare arguments -->
-  <xacro:arg name="joint_limit_params" default=""/>
-  <xacro:arg name="physical_params" default=""/>
-  <xacro:arg name="kinematics_params" default=""/>
-  <xacro:arg name="visual_params" default=""/>
-  <xacro:arg name="prefix1" default=""/>
-  <xacro:arg name="prefix2" default=""/>
+  <arg name="joint_limit_params" default="$(find ur_description)/config/ur5/joint_limits.yaml"/>
+  <arg name="kinematics_params" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+  <arg name="physical_params" default="$(find ur_description)/config/ur5/physical_parameters.yaml"/>
+  <arg name="visual_params" default="$(find ur_description)/config/ur5/visual_parameters.yaml"/>
+  <arg name="prefix1" default="left_" />
+  <arg name="prefix2" default="right_" />
   <!--
     legal values:
       - hardware_interface/PositionJointInterface
@@ -91,30 +93,18 @@
     here. Create a NEW xacro instead and decide whether you need to add
     a 'world' link there.
   -->
-  <link name="world"/>
-  <joint name="world_joint" type="prismatic">
+   <link name="world"/>
+  <joint name="world_joint" type="fixed">
     <parent link="world"/>
     <child link="$(arg prefix1)base_link"/>
-    <origin xyz="0 0 2" rpy="0 0 0"/>
-    <axis xyz="0 1 0" />
-    <limit lower="-10" upper="10"
-        effort="10" velocity="10"/>
+    <origin xyz="0 0 1" rpy="0 0 0"/>
+    <axis xyz="0 0 0" />
   </joint>
-
-  <transmission name="world_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="world_joint">
-        <hardwareInterface>$(arg transmission_hw_interface)</hardwareInterface>
-      </joint>
-      <actuator name="$world_joint_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-    </transmission>
 
   <joint name="connect_joint" type="fixed">
     <parent link="$(arg prefix1)base_link"/>
     <child link="$(arg prefix2)base_link"/>
-    <origin xyz="0 -1 0" rpy="0 0 0"/>
+    <origin xyz="0 -0.8 0" rpy="0 0 0"/>
   </joint>
 
   <link name="tool0_controller"/>
@@ -124,163 +114,286 @@
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
-  <link name="qbsh_left">
+  <link name="$(arg prefix1)support">
     <visual>
      <origin xyz="0 0 0" rpy="0 0 0" />
      <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
+        <mesh filename="package://agri_gazebo_scene/../../models/Supporto UR5 Realsense.stl" scale="0.001 0.001 0.001"/>
      </geometry>
    </visual>
    <collision>
      <origin xyz="0 0 0" rpy="0 0 0" />
      <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
+        <mesh filename="package://agri_gazebo_scene/../../models/Supporto UR5 Realsense.stl" scale="0.001 0.001 0.001" />
      </geometry>
    </collision>
   </link>
 
-  <link name="qbsh_right">
-    <visual>
-     <origin xyz="0 0 0" rpy="0 0 0" />
-     <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
-     </geometry>
-   </visual>
-   <collision>
-     <origin xyz="0 0 0" rpy="0 0 0" />
-     <geometry>
-        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl" />
-     </geometry>
-   </collision>
-  </link>
-
-  <joint name="qbsh_left_joint" type="fixed">
+  <joint name="$(arg prefix1)support_joint" type="fixed">
     <parent link="$(arg prefix1)tool0"/>
-    <child link="qbsh_left"/>
+    <child link="$(arg prefix1)support"/>
+    <origin xyz="0 0 0.001" rpy="0 0 0"/>
+  </joint>
+
+  <link name="$(arg prefix2)support">
+    <visual>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <mesh filename="package://agri_gazebo_scene/../../models/Supporto UR5 Realsense.stl" scale="0.001 0.001 0.001"/>
+     </geometry>
+   </visual>
+   <collision>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <mesh filename="package://agri_gazebo_scene/../../models/Supporto UR5 Realsense.stl" scale="0.001 0.001 0.001" />
+     </geometry>
+   </collision>
+  </link>
+
+  <joint name="$(arg prefix2)support_joint" type="fixed">
+    <parent link="$(arg prefix2)tool0"/>
+    <child link="$(arg prefix2)support"/>
+    <origin xyz="0 0 0.001" rpy="0 0 0"/>
+  </joint>
+
+ 
+  <link name="$(arg prefix1)qbsh">
+    <visual>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
+     </geometry>
+   </visual>
+   <collision>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left_closed.stl"/>
+     </geometry>
+   </collision>
+  </link>
+
+  <link name="$(arg prefix2)qbsh">
+    <visual>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left.stl"/>
+     </geometry>
+   </visual>
+   <collision>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <mesh filename="package://agri_gazebo_scene/meshes/qbsh_left_closed.stl" />
+     </geometry>
+   </collision>
+  </link>
+
+  <joint name="$(arg prefix1)qbsh_joint" type="fixed">
+    <parent link="$(arg prefix1)support"/>
+    <child link="$(arg prefix1)qbsh"/>
     <origin xyz="0 0 0" rpy="0 0 3.14"/>
   </joint>
 
-  <joint name="qbsh_right_joint" type="fixed">
-    <parent link="$(arg prefix2)tool0"/>
-    <child link="qbsh_right"/>
+  <joint name="$(arg prefix2)qbsh_joint" type="fixed">
+    <parent link="$(arg prefix2)support"/>
+    <child link="$(arg prefix2)qbsh"/>
     <origin xyz="0 0 0" rpy="0 0 3.14"/>
   </joint>
   
-   <joint name="$(arg prefix1)camera_joint" type="fixed">
+  <!-- Cameras -->
+  <link name="central_camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 -0.523599 0"/>
+      <geometry>
+        <box size="0.05 0.1 0.05"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+     <origin xyz="0 0 0" rpy="0 -0.523599 0" />
+     <geometry>
+        <box size="0.05 0.1 0.05"/>
+     </geometry>
+   </collision>
+  </link>
+
+  <joint name="central_camera_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0.1 0 0" rpy="0 0 0"/>
+    <origin xyz="0 -0.4 0" rpy="0 0 0"/>
     <parent link="$(arg prefix1)base_link"/>
+    <child link="central_camera_link"/>
+  </joint>
+
+  <gazebo reference="central_camera_link">
+      <sensor type="depth" name="central_camera">
+        <update_rate>20</update_rate>
+      <camera>
+        <horizontal_fov>1.047198</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>3</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>1.0</updateRate>
+        <cameraName>central_camera</cameraName>
+        <imageTopicName>/central_camera/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/central_camera/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/central_camera/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>/central_camera/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>/central_camera/depth/points</pointCloudTopicName>
+        <frameName>central_camera_link</frameName>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+      </sensor>
+    </gazebo>
+
+  <joint name="$(arg prefix1)camera_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="0 0.07 -0.02" rpy="0 -1.57 1.57"/>
+    <parent link="$(arg prefix1)support"/>
     <child link="$(arg prefix1)camera_link"/>
   </joint>
 
-  <!-- Camera -->
   <link name="$(arg prefix1)camera_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-    <box size="0.05 0.05 0.05"/>
+        <box size="0.025 0.07 0.025"/>
       </geometry>
       <material name="grey"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.025 0.07 0.025"/>
+      </geometry>
+    </collision>
   </link>
 
-    <gazebo reference="$(arg prefix1)camera_link">
-    <sensor type="camera" name="camera1">
-      <update_rate>30.0</update_rate>
-      <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
+  <gazebo reference="$(arg prefix1)camera_link">
+      <sensor type="depth" name="$(arg prefix1)camera">
+        <update_rate>20</update_rate>
+      <camera>
+        <horizontal_fov>1.047198</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>640</width>
+          <height>480</height>
           <format>R8G8B8</format>
         </image>
         <clip>
-          <near>0.02</near>
-          <far>300</far>
+          <near>0.05</near>
+          <far>3</far>
         </clip>
-        <noise>
-          <type>gaussian</type>
-          <!-- Noise is sampled independently per pixel on each frame.
-               That pixel's noise value is added to each of its color
-               channels, which at that point lie in the range [0,1]. -->
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
       </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <baseline>0.2</baseline>
         <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
-        <cameraName>$(arg prefix1)/camera1</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <updateRate>1.0</updateRate>
+        <cameraName>$(arg prefix1)</cameraName>
+        <imageTopicName>/$(arg prefix1)camera/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/$(arg prefix1)camera/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/$(arg prefix1)camera/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>/$(arg prefix1)camera/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>/$(arg prefix1)camera/depth/points</pointCloudTopicName>
         <frameName>$(arg prefix1)camera_link</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
       </plugin>
-    </sensor>
-  </gazebo>
+      </sensor>
+    </gazebo>
 
-    
-   <joint name="$(arg prefix2)camera_joint" type="fixed">
-    <axis xyz="0 1 0" />
-    <origin xyz="0.1 0 0" rpy="0 0 0"/>
-    <parent link="$(arg prefix2)base_link"/>
+
+  <joint name="$(arg prefix2)camera_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="0 0.07 -0.02" rpy="0 -1.57 1.57"/>
+    <parent link="$(arg prefix2)support"/>
     <child link="$(arg prefix2)camera_link"/>
   </joint>
 
-  <!-- Camera -->
   <link name="$(arg prefix2)camera_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-    <box size="0.05 0.05 0.05"/>
+        <box size="0.025 0.07 0.025"/>
       </geometry>
       <material name="grey"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.025 0.07 0.025"/>
+      </geometry>
+    </collision>
   </link>
 
-    <gazebo reference="$(arg prefix2)camera_link">
-    <sensor type="camera" name="camera1">
-      <update_rate>30.0</update_rate>
-      <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
+  <gazebo reference="$(arg prefix2)camera_link">
+      <sensor type="depth" name="$(arg prefix2)camera">
+        <update_rate>20</update_rate>
+      <camera>
+        <horizontal_fov>1.047198</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>640</width>
+          <height>480</height>
           <format>R8G8B8</format>
         </image>
         <clip>
-          <near>0.02</near>
-          <far>300</far>
+          <near>0.05</near>
+          <far>3</far>
         </clip>
-        <noise>
-          <type>gaussian</type>
-          <!-- Noise is sampled independently per pixel on each frame.
-               That pixel's noise value is added to each of its color
-               channels, which at that point lie in the range [0,1]. -->
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
       </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <baseline>0.2</baseline>
         <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
-        <cameraName>$(arg prefix2)/camera1</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>$(arg prefix2)camera_link</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
+        <updateRate>1.0</updateRate>
+        <cameraName>$(arg prefix2)</cameraName>
+        <imageTopicName>/$(arg prefix2)camera/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/$(arg prefix2)camera/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/$(arg prefix2)camera/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>/$(arg prefix2)camera/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>/$(arg prefix2)camera/depth/points</pointCloudTopicName>
+        <frameName>$(arg prefix1)camera_link</frameName>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
       </plugin>
-    </sensor>
-  </gazebo>
+      </sensor>
+    </gazebo>
 
 </robot>
